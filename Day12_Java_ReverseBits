@@ -1,0 +1,17 @@
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+    //We are guaranteed that the input number will always be positive. So what we do is get the binary representation, reverse it, and then add "0" at the end
+    //until it becomes a 32 bit integer.
+    //convert number into its binary representation
+        String stringRepresentation = Integer.toBinaryString(n);
+        //this reverses the string using a stringbuffer
+        stringRepresentation = new StringBuffer().append(stringRepresentation).reverse().toString();
+        //add zeros until the length is 32, making it a 32 bit unsigned int
+        while(stringRepresentation.length() != 32)
+        {
+        	stringRepresentation += "0";
+        }
+        //return it
+        return Integer.parseUnsignedInt(stringRepresentation,2);
+    }
