@@ -1,0 +1,33 @@
+class Solution {
+    	Stack<Integer> firstStack = new Stack<>();
+	    Stack<Integer> secondStack = new Stack<>();
+
+	public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true;
+        if ( p == null && q != null || p != null && q == null) return false;
+		traverse_node(p, firstStack);
+		traverse_node(q, secondStack);
+		while (firstStack.size() != 0 || secondStack.size() != 0) {
+			int firstValue = firstStack.pop();
+			int secondValue = secondStack.pop();
+			if (firstValue != secondValue) {
+				return false;
+			}
+		}
+		return firstStack.size() != 0 || secondStack.size() != 0 ? false : true;
+	}
+
+	public void traverse_node(TreeNode l, Stack<Integer> stack) {
+		stack.push(l.val);
+		if (l.left == null) {
+			stack.push(-1);
+		} else {
+			traverse_node(l.left, stack);
+		}
+		if (l.right == null) {
+			stack.push(-1);
+		} else {
+			traverse_node(l.right, stack);
+		}
+	}
+}
