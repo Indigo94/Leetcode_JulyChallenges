@@ -1,3 +1,3 @@
 # Leetcode_JulyChallenges
-Leetcode has monthly challenges. Every day, they have a new interview-like challenge.
-This is an excellent way to keep from getting rusty with programming.
+Leetcode has a monthly challenge, where every they post a logical question every day of the month.
+This repository will contain my solutions to these questions. 
