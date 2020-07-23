@@ -1,0 +1,19 @@
+public class Solution {
+	public int[] singleNumber(int[] nums) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		byte counter = 0;
+		int[] finalArray = new int[2];
+		for (int number : nums) {
+			map.put(number, map.getOrDefault(number, 0) + 1);
+		}
+		for (Map.Entry<Integer, Integer> loopMap : map.entrySet()) {
+			if (loopMap.getValue() == 1) {
+				finalArray[counter++] = loopMap.getKey();
+				if (counter == 2) {
+					return finalArray;
+				}
+			}
+		}
+		return finalArray;
+	}
+}
